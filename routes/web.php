@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\History;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,15 @@ Route::get('/camera', function () {
     return view('camera');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+
+Route::post('/actionLogin', [Login::class, 'actionLogin'])->name('actionLogin');
+Route::get('/actionLogout', [Login::class, 'actionLogout'])->name('actionLogout');
+Route::post('/actionRegister', [Login::class, 'actionRegister'])->name('actionRegister');
+
+Route::get('/profile', [History::class, 'historyView'])->name('historyView');
+Route::get('/home', [History::class, 'homeView'])->name('homeView');
+
+Route::post('/predict', [History::class, 'predict'])->name('predict');

@@ -12,7 +12,7 @@
         <div class="bg-slate-300 flex w-[375px] h-[810px]">
             <div class="m-auto">
                 <p class="text-xl justify-center flex pb-10">create new account</p>
-                <form action="{{ url('/loginAction') }}" method="post">
+                <form action="{{route('actionRegister')}}" method="post">
                     @csrf
                     <p class="text-base">Name</p>
                     <input type="text" id="name" name="name" class=" mt-1 block w-full rounded-full border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Amba Tukam" required>
@@ -24,6 +24,13 @@
                     <input type="text" id="height" name="height" class=" mt-1 block w-full rounded-full border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="177" required>
                     <p class="text-base">Body weight</p>
                     <input type="text" id="weight" name="weight" class=" mt-1 block w-full rounded-full border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="56" required>
+                    <p class="text-base">Gender</p>
+                    <input type="radio" id="gender1" name="gender" value="male">
+                    <label for="gender1">Male</label><br>
+                    <input type="radio" id="gender2" name="gender" value="female">
+                    <label for="gender2">Female</label><br>
+                    <p class="text-base">Age</p>
+                    <input type="text" id="age" name="age" class=" mt-1 block w-full rounded-full border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="56" required>
                     <p class="flex justify-center text-gray-500 font-normal pt-5">Have an account? &nbsp;<a href="/" class="font-normal text-base text-blue-400 justify-end hover:text-blue-500">Login
                             Now</a>
                     </p>

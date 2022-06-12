@@ -11,7 +11,7 @@
 <body>
     <div class="flex justify-center pt-20">
         <div class="bg-slate-300 flex w-[375px] h-[810px]">
-            <div class="mx-auto">                
+            <div class="mx-auto">
                 <div class="bg-gray-700 text-center text-white w-full">
                     <div class="grid grid-cols-3">
                         <a href="/home">Home</a>
@@ -28,7 +28,10 @@
                     <button id="predict-button" class="rounded-md bg-green-600 px-5 py-2 text-white">Predict</button>
                 </div>
                 <div class="mx-10">
-                    <ol id="prediction-list"></ol>
+                    <form action="{{route('predict')}}" method="post">
+                        @csrf
+                        <ol id="prediction-list"></ol>
+                    </form>
                 </div>
                 <div class="progress">Loading Model</div>
             </div>

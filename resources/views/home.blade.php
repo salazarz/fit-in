@@ -21,9 +21,9 @@
                 <div class="w-[90%] mx-auto">
                     <div class="mt-16">
                         <p class="text-5xl">Good Morning</p>
-                        <p>Hello, lorem</p>
+                        <p>Hello, {{$data->user->name}}</p>
                         <div class="bg-green-300 w-full p-10 rounded-md mt-5">
-                            <p class="flex justify-center">650 cal of 2354 cal</p>
+                            <p class="flex justify-center">{{ $data->calories }}</p>
                         </div>
                     </div>
                 </div>

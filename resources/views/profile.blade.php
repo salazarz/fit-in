@@ -19,21 +19,24 @@
                     </div>
                 </div>
                 <div class="w-[90%] mx-auto">
-                    <div class="pb-10">
-                        <p>Hello, lorem</p>
+                    <div class="pb-5">
+                        <p>Hello, {{$data->user->name}}</p>
+                    </div>
+                    <div class="pb-5">
+                        <a href="{{route('actionLogout')}}" class="rounded-md bg-red-500 px-5 py-2 text-white">Logout</a>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-green-300 rounded-md p-6">
                             <p>body weight</p>
-                            <p>100kg</p>
+                            <p>{{ $data->user->weight }} kg</p>
                         </div>
                         <div class="bg-green-300 rounded-md p-6">
                             <p>body height</p>
-                            <p>165cm</p>
+                            <p>{{ $data->user->height }} cm</p>
                         </div>
                     </div>
                     <div class="bg-green-300 w-full p-10 rounded-md mt-5">
-                        <p class="flex justify-center">650 cal of 2354 cal</p>
+                        <p class="flex justify-center">{{ $data->calories }}</p>
                     </div>
                     <table id="table_id" class="divide-y divide-gray-200 w-[90%] table-auto mx-auto my-6">
                         <thead class="bg-gray-50">
@@ -44,11 +47,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data->history as $row)
                             <tr class="bg-white">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">123124</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">sate</td>
-                                <td class="px-6 py-4 text-sm text-gray-500 break-all">123</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $row->date }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $row->calories }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 break-all">{{ $row->food }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
